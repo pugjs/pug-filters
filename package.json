@@ -1,6 +1,6 @@
 {
   "name": "jade-filters",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Code for processing filters in jade templates",
   "keywords": [],
   "dependencies": {
