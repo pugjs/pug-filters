@@ -4,8 +4,12 @@
   "description": "Code for processing filters in jade templates",
   "keywords": [],
   "dependencies": {
+    "clean-css": "^3.3.0",
     "constantinople": "^3.0.1",
-    "jade-walk": "0.0.2"
+    "jade-walk": "0.0.2",
+    "jstransformer": "0.0.2",
+    "resolve": "^1.1.6",
+    "uglify-js": "^2.4.23"
   },
   "devDependencies": {
     "mocha": "*"
