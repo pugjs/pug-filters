@@ -1,0 +1,22 @@
+{
+  "name": "jade-filters",
+  "version": "0.0.0",
+  "description": "Code for processing filters in jade templates",
+  "keywords": [],
+  "dependencies": {
+    "constantinople": "^3.0.1",
+    "jade-walk": "0.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jadejs/jade-filters.git"
+  },
+  "author": "Forbes Lindesay",
+  "license": "MIT"
+}
