@@ -13,10 +13,17 @@
     "uglify-js": "^2.4.23"
   },
   "devDependencies": {
-    "mocha": "*"
+    "get-repo": "^1.0.0",
+    "jstransformer-cdata": "^1.0.0",
+    "jstransformer-coffee-script": "^1.0.0",
+    "jstransformer-less": "^2.1.0",
+    "jstransformer-marked": "^1.0.1",
+    "jstransformer-stylus": "^1.0.0",
+    "jstransformer-uglify-js": "0.0.4",
+    "testit": "^2.0.0"
   },
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
