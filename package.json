@@ -10,7 +10,7 @@
     "jade-walk": "0.0.2",
     "jstransformer": "0.0.2",
     "resolve": "^1.1.6",
-    "uglify-js": "^2.4.23"
+    "uglify-js": "^2.4.24"
   },
   "devDependencies": {
     "get-repo": "^1.0.0",
