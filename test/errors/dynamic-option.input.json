@@ -1,0 +1,35 @@
+{
+  "type": "Block",
+  "nodes": [
+    {
+      "type": "Code",
+      "val": "var opt = 'a'",
+      "buffer": false,
+      "escape": false,
+      "line": 1
+    },
+    {
+      "type": "Filter",
+      "name": "cdata",
+      "block": {
+        "type": "Block",
+        "nodes": [
+          {
+            "type": "Text",
+            "val": "hey",
+            "line": 3
+          }
+        ]
+      },
+      "attrs": [
+        {
+          "name": "option",
+          "val": "opt",
+          "escaped": true
+        }
+      ],
+      "line": 2
+    }
+  ],
+  "line": 0
+}
