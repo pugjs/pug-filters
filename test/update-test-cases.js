@@ -3,11 +3,27 @@
 var fs = require('fs');
 var assert = require('assert');
 var getRepo = require('get-repo');
+var lex = require('jade-lexer');
+var parse = require('jade-parser');
 var handleFilters = require('../').handleFilters;
 
 var existing = fs.readdirSync(__dirname + '/cases').filter(function (name) {
   return /\.input\.json$/.test(name);
 });
+
+function getError (input, filename) {
+  try {
+    handleFilters(input);
+    throw new Error('Expected ' + filename + ' to throw an exception.');
+  } catch (ex) {
+    if (!ex || !ex.code || !ex.code.indexOf('JADE:') === 0) throw ex;
+    return {
+      msg: ex.msg,
+      code: ex.code,
+      line: ex.line
+    };
+  }
+}
 
 getRepo('jadejs', 'jade-parser').on('data', function (entry) {
   var match;
@@ -50,6 +66,48 @@ getRepo('jadejs', 'jade-parser').on('data', function (entry) {
 }).on('end', function () {
   existing.forEach(function (file) {
     fs.unlinkSync(__dirname + '/cases/' + file);
+  });
+  var existingErrors = fs.readdirSync(__dirname + '/errors').filter(function (name) {
+    return /\.input\.json$/.test(name);
+  });
+  var jadeRe = /\.jade$/;
+  fs.readdirSync(__dirname + '/errors-src').forEach(function (name) {
+    if (!jadeRe.test(name)) return;
+    name = name.replace(jadeRe, '');
+    var filename = name + '.input.json';
+    var alreadyExists = false;
+    existingErrors = existingErrors.filter(function (existingName) {
+      if (existingName === filename) {
+        alreadyExists = true;
+        return false;
+      }
+      return true;
+    });
+    if (alreadyExists) {
+      var actualTokens = parse(lex(fs.readFileSync(__dirname + '/errors-src/' + name + '.jade', 'utf8')));
+      try {
+        var expectedTokens = JSON.parse(fs.readFileSync(__dirname + '/errors/' + filename, 'utf8'));
+        assert.deepEqual(actualTokens, expectedTokens);
+      } catch (ex) {
+        console.log('update: ' + filename);
+        fs.writeFileSync(__dirname + '/errors/' + filename, JSON.stringify(actualTokens));
+      }
+      var actual = getError(actualTokens, filename);
+      try {
+        var expected = JSON.parse(fs.readFileSync(__dirname + '/errors/' + name + '.expected.json', 'utf8'));
+        assert.deepEqual(actual, expected);
+      } catch (ex) {
+        console.log('update: ' + name + '.expected.json');
+        fs.writeFileSync(__dirname + '/errors/' + name + '.expected.json', JSON.stringify(actual, null, '  '));
+      }
+    } else {
+      console.log('create: ' + filename);
+      var ast = parse(lex(fs.readFileSync(__dirname + '/errors-src/' + name + '.jade', 'utf8')));
+      fs.writeFileSync(__dirname + '/errors/' + filename, JSON.stringify(ast, null, 2));
+      console.log('create: ' + name + '.expected.json');
+      var actual = getError(ast, filename);
+      fs.writeFileSync(__dirname + '/errors/' + name + '.expected.json', JSON.stringify(actual, null, '  '));
+    }
   });
   console.log('test cases updated');
 });

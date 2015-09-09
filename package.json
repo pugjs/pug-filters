@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "get-repo": "^1.0.0",
+    "jade-lexer": "0.0.8",
+    "jade-parser": "0.0.8",
     "jstransformer-cdata": "^1.0.0",
     "jstransformer-coffee-script": "^1.0.0",
     "jstransformer-less": "^2.1.0",
