@@ -8,7 +8,7 @@
     "constantinople": "^3.0.1",
     "jade-error": "^1.0.0",
     "jade-walk": "0.0.2",
-    "jstransformer": "0.0.2",
+    "jstransformer": "0.0.3",
     "resolve": "^1.1.6",
     "uglify-js": "^2.4.24"
   },
