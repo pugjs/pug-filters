@@ -36,14 +36,18 @@
                         "val": "whoop.",
                         "line": 5
                       }
-                    ]
+                    ],
+                    "line": 3,
+                    "filename": "filters.markdown.tokens.json"
                   },
                   "attrs": [],
                   "line": 3,
                   "filename": "filters.markdown.tokens.json",
                   "val": "<p>This is <em>some</em> awesome <strong>markdown</strong>\nwhoop.</p>\n"
                 }
-              ]
+              ],
+              "line": 2,
+              "filename": "filters.markdown.tokens.json"
             },
             "attrs": [],
             "attributeBlocks": [],
@@ -51,7 +55,9 @@
             "line": 2,
             "filename": "filters.markdown.tokens.json"
           }
-        ]
+        ],
+        "line": 1,
+        "filename": "filters.markdown.tokens.json"
       },
       "attrs": [],
       "attributeBlocks": [],

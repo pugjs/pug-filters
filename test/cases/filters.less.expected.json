@@ -63,14 +63,18 @@
                               "val": "}",
                               "line": 8
                             }
-                          ]
+                          ],
+                          "line": 4,
+                          "filename": "filters.less.tokens.json"
                         },
                         "attrs": [],
                         "line": 4,
                         "filename": "filters.less.tokens.json",
                         "val": "body {\n  padding: 15px;\n}\n"
                       }
-                    ]
+                    ],
+                    "line": 3,
+                    "filename": "filters.less.tokens.json"
                   },
                   "attrs": [
                     {
@@ -84,7 +88,9 @@
                   "line": 3,
                   "filename": "filters.less.tokens.json"
                 }
-              ]
+              ],
+              "line": 2,
+              "filename": "filters.less.tokens.json"
             },
             "attrs": [],
             "attributeBlocks": [],
@@ -92,7 +98,9 @@
             "line": 2,
             "filename": "filters.less.tokens.json"
           }
-        ]
+        ],
+        "line": 1,
+        "filename": "filters.less.tokens.json"
       },
       "attrs": [],
       "attributeBlocks": [],

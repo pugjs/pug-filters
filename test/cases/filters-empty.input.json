@@ -6,6 +6,7 @@
       "val": "var users = [{ name: 'tobi', age: 2 }]",
       "buffer": false,
       "escape": false,
+      "isInline": false,
       "line": 1,
       "filename": "filters-empty.tokens.json"
     },
@@ -43,7 +44,9 @@
                         "line": 6,
                         "filename": "filters-empty.tokens.json"
                       }
-                    ]
+                    ],
+                    "line": 5,
+                    "filename": "filters-empty.tokens.json"
                   },
                   "attrs": [
                     {
@@ -64,7 +67,9 @@
             "line": 4,
             "filename": "filters-empty.tokens.json"
           }
-        ]
+        ],
+        "line": 3,
+        "filename": "filters-empty.tokens.json"
       },
       "attrs": [],
       "attributeBlocks": [],

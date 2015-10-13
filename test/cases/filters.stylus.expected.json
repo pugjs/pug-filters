@@ -43,14 +43,18 @@
                               "val": "  padding: 50px",
                               "line": 6
                             }
-                          ]
+                          ],
+                          "line": 4,
+                          "filename": "filters.stylus.tokens.json"
                         },
                         "attrs": [],
                         "line": 4,
                         "filename": "filters.stylus.tokens.json",
                         "val": "body {\n  padding: 50px;\n}\n"
                       }
-                    ]
+                    ],
+                    "line": 3,
+                    "filename": "filters.stylus.tokens.json"
                   },
                   "attrs": [
                     {
@@ -64,7 +68,9 @@
                   "line": 3,
                   "filename": "filters.stylus.tokens.json"
                 }
-              ]
+              ],
+              "line": 2,
+              "filename": "filters.stylus.tokens.json"
             },
             "attrs": [],
             "attributeBlocks": [],
@@ -78,7 +84,9 @@
             "selfClosing": false,
             "block": {
               "type": "Block",
-              "nodes": []
+              "nodes": [],
+              "line": 7,
+              "filename": "filters.stylus.tokens.json"
             },
             "attrs": [],
             "attributeBlocks": [],
@@ -86,7 +94,9 @@
             "line": 7,
             "filename": "filters.stylus.tokens.json"
           }
-        ]
+        ],
+        "line": 1,
+        "filename": "filters.stylus.tokens.json"
       },
       "attrs": [],
       "attributeBlocks": [],

@@ -19,7 +19,9 @@
                   "val": "regexp = /\\n/",
                   "line": 3
                 }
-              ]
+              ],
+              "line": 2,
+              "filename": "filters.coffeescript.tokens.json"
             },
             "attrs": [],
             "line": 2,
@@ -47,7 +49,9 @@
                   "val": "  square: (value) -> value * value",
                   "line": 6
                 }
-              ]
+              ],
+              "line": 4,
+              "filename": "filters.coffeescript.tokens.json"
             },
             "attrs": [
               {
@@ -60,7 +64,9 @@
             "filename": "filters.coffeescript.tokens.json",
             "val": "(function(){var n;n={square:function(n){return n*n}}}).call(this);"
           }
-        ]
+        ],
+        "line": 1,
+        "filename": "filters.coffeescript.tokens.json"
       },
       "attrs": [
         {

@@ -90,7 +90,7 @@ getRepo('jadejs', 'jade-parser').on('data', function (entry) {
         assert.deepEqual(actualTokens, expectedTokens);
       } catch (ex) {
         console.log('update: ' + filename);
-        fs.writeFileSync(__dirname + '/errors/' + filename, JSON.stringify(actualTokens));
+        fs.writeFileSync(__dirname + '/errors/' + filename, JSON.stringify(actualTokens, null, '  '));
       }
       var actual = getError(actualTokens, filename);
       try {

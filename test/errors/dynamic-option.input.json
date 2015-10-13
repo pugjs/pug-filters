@@ -6,6 +6,7 @@
       "val": "var opt = 'a'",
       "buffer": false,
       "escape": false,
+      "isInline": false,
       "line": 1
     },
     {
@@ -19,7 +20,8 @@
             "val": "hey",
             "line": 3
           }
-        ]
+        ],
+        "line": 2
       },
       "attrs": [
         {
