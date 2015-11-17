@@ -23,7 +23,7 @@
     "jstransformer-less": "^2.1.0",
     "jstransformer-marked": "^1.0.1",
     "jstransformer-stylus": "^1.0.0",
-    "jstransformer-uglify-js": "0.0.4",
+    "jstransformer-uglify-js": "^1.1.1",
     "testit": "^2.0.0"
   },
   "scripts": {
