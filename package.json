@@ -1,6 +1,6 @@
 {
   "name": "pug-filters",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Code for processing filters in pug templates",
   "keywords": [
     "pug"
