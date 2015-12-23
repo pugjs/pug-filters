@@ -3,7 +3,7 @@
 Code for processing filters in pug templates
 
 [![Build Status](https://img.shields.io/travis/pugjs/pug-filters/master.svg)](https://travis-ci.org/pugjs/pug-filters)
-[![Dependency Status](https://img.shields.io/gemnasium/pugjs/pug-filters.svg)](https://gemnasium.com/pugjs/pug-filters)
+[![Dependency Status](https://img.shields.io/david/pugjs/pug-filters.svg)](https://david-dm.org/pugjs/pug-filters)
 [![NPM version](https://img.shields.io/npm/v/pug-filters.svg)](https://www.npmjs.org/package/pug-filters)
 
 ## Installation
