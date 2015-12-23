@@ -1,24 +1,24 @@
-# jade-filters
+# pug-filters
 
-Code for processing filters in jade templates
+Code for processing filters in pug templates
 
-[![Build Status](https://img.shields.io/travis/jadejs/jade-filters/master.svg)](https://travis-ci.org/jadejs/jade-filters)
-[![Dependency Status](https://img.shields.io/gemnasium/jadejs/jade-filters.svg)](https://gemnasium.com/jadejs/jade-filters)
-[![NPM version](https://img.shields.io/npm/v/jade-filters.svg)](https://www.npmjs.org/package/jade-filters)
+[![Build Status](https://img.shields.io/travis/pugjs/pug-filters/master.svg)](https://travis-ci.org/pugjs/pug-filters)
+[![Dependency Status](https://img.shields.io/gemnasium/pugjs/pug-filters.svg)](https://gemnasium.com/pugjs/pug-filters)
+[![NPM version](https://img.shields.io/npm/v/pug-filters.svg)](https://www.npmjs.org/package/pug-filters)
 
 ## Installation
 
-    npm install jade-filters
+    npm install pug-filters
 
 ## Usage
 
 ```
-var filters = require('jade-filters');
+var filters = require('pug-filters');
 ```
 
 ### `filters.handleFilters(ast, filters)`
 
-Renders all `Filter` nodes in a Jade AST (`ast`), using user-specified filters (`filters`) or a JSTransformer.
+Renders all `Filter` nodes in a Pug AST (`ast`), using user-specified filters (`filters`) or a JSTransformer.
 
 ### `filters.runFilter(name, str[, options[, currentDirectory]])`
 
