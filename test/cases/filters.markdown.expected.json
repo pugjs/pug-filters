@@ -17,7 +17,7 @@
               "nodes": [
                 {
                   "type": "Text",
-                  "name": "marked",
+                  "name": "markdown-it",
                   "block": {
                     "type": "Block",
                     "nodes": [

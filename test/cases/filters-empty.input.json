@@ -5,7 +5,7 @@
       "type": "Code",
       "val": "var users = [{ name: 'tobi', age: 2 }]",
       "buffer": false,
-      "escape": false,
+      "mustEscape": false,
       "isInline": false,
       "line": 1,
       "filename": "filters-empty.tokens.json"
@@ -21,6 +21,7 @@
             "type": "Each",
             "obj": "users",
             "val": "user",
+            "key": null,
             "block": {
               "type": "Block",
               "nodes": [
@@ -52,7 +53,7 @@
                     {
                       "name": "age",
                       "val": "user.age",
-                      "escaped": true
+                      "mustEscape": true
                     }
                   ],
                   "attributeBlocks": [],

@@ -57,7 +57,7 @@
               {
                 "name": "minify",
                 "val": "true",
-                "escaped": true
+                "mustEscape": true
               }
             ],
             "line": 4,
@@ -72,7 +72,7 @@
         {
           "name": "type",
           "val": "'text/javascript'",
-          "escaped": true
+          "mustEscape": true
         }
       ],
       "attributeBlocks": [],
