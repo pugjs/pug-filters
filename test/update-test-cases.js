@@ -4,8 +4,10 @@ var fs = require('fs');
 var assert = require('assert');
 var getRepo = require('get-repo');
 var lex = require('pug-lexer');
+var load = require('pug-load');
 var parse = require('pug-parser');
 var handleFilters = require('../').handleFilters;
+var customFilters = require('./custom-filters.js');
 
 var existing = fs.readdirSync(__dirname + '/cases').filter(function (name) {
   return /\.input\.json$/.test(name);
@@ -13,7 +15,7 @@ var existing = fs.readdirSync(__dirname + '/cases').filter(function (name) {
 
 function getError (input, filename) {
   try {
-    handleFilters(input);
+    handleFilters(input, customFilters);
     throw new Error('Expected ' + filename + ' to throw an exception.');
   } catch (ex) {
     if (!ex || !ex.code || !ex.code.indexOf('PUG:') === 0) throw ex;
@@ -39,27 +41,29 @@ getRepo('pugjs', 'pug-parser').on('data', function (entry) {
       return true;
     });
     if (alreadyExists) {
+      var actualInputAst = getLoadedAst(entry.body.toString('utf8'));
       try {
-        var expectedTokens = JSON.parse(fs.readFileSync(__dirname + '/cases/' + filename, 'utf8'));
-        var actualTokens = JSON.parse(entry.body.toString('utf8'));
-        assert.deepEqual(actualTokens, expectedTokens);
+        var expectedInputAst = JSON.parse(fs.readFileSync(__dirname + '/cases/' + filename, 'utf8'));
+        assert.deepEqual(expectedInputAst, actualInputAst);
       } catch (ex) {
         console.log('update: ' + filename);
-        fs.writeFileSync(__dirname + '/cases/' + filename, entry.body);
+        fs.writeFileSync(__dirname + '/cases/' + filename, JSON.stringify(actualInputAst, null, '  '));
       }
-      var actualAst = handleFilters(JSON.parse(entry.body.toString('utf8')));
+
+      var actualAstStr = JSON.stringify(handleFilters(actualInputAst, customFilters), null, '  ');
       try {
-        var expectedAst = JSON.parse(fs.readFileSync(__dirname + '/cases/' + name + '.expected.json', 'utf8'));
-        assert.deepEqual(actualAst, expectedAst);
+        var expectedAstStr = fs.readFileSync(__dirname + '/cases/' + name + '.expected.json', 'utf8');
+        assert.equal(actualAstStr, expectedAstStr);
       } catch (ex) {
         console.log('update: ' + name + '.expected.json');
-        fs.writeFileSync(__dirname + '/cases/' + name + '.expected.json', JSON.stringify(actualAst, null, '  '));
+        fs.writeFileSync(__dirname + '/cases/' + name + '.expected.json', actualAstStr);
       }
     } else {
       console.log('create: ' + filename);
-      fs.writeFileSync(__dirname + '/cases/' + filename, entry.body);
+      var inputAst = getLoadedAst(entry.body.toString('utf8'));
+      fs.writeFileSync(__dirname + '/cases/' + filename, JSON.stringify(inputAst, null, '  '));
       console.log('create: ' + name + '.expected.json');
-      var ast = handleFilters(JSON.parse(entry.body.toString('utf8')));
+      var ast = handleFilters(inputAst, customFilters);
       fs.writeFileSync(__dirname + '/cases/' + name + '.expected.json', JSON.stringify(ast, null, '  '));
     }
   }
@@ -111,3 +115,17 @@ getRepo('pugjs', 'pug-parser').on('data', function (entry) {
   });
   console.log('test cases updated');
 });
+
+function getLoadedAst(str) {
+  return load(JSON.parse(str), {
+    lex: function () {
+      throw new Error('The lexer should not be used');
+    },
+    parse: function () {
+      throw new Error('The parser should not be used');
+    },
+    resolve: function (filename, source, options) {
+      return 'test/cases/' + filename.trim();
+    }
+  });
+}

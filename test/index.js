@@ -4,6 +4,7 @@ var fs = require('fs');
 var assert = require('assert');
 var testit = require('testit');
 var handleFilters = require('../').handleFilters;
+var customFilters = require('./custom-filters.js');
 
 var testCases;
 
@@ -20,10 +21,10 @@ testCases.forEach(function (filename) {
   }
 
   testit('cases/' + filename, function () {
-    var expectedAst = JSON.parse(read(filename.replace(/\.input\.json$/, '.expected.json')));
-    var actualAst = handleFilters(JSON.parse(read(filename)));
-    write(filename.replace(/\.input\.json$/, '.actual.json'), JSON.stringify(actualAst, null, '  '));
-    assert.deepEqual(actualAst, expectedAst);
+    var expectedAst = read(filename.replace(/\.input\.json$/, '.expected.json'));
+    var actualAst = JSON.stringify(handleFilters(JSON.parse(read(filename)), customFilters), null, '  ');
+    write(filename.replace(/\.input\.json$/, '.actual.json'), actualAst);
+    assert.equal(actualAst, expectedAst);
   })
 });
 
@@ -43,7 +44,7 @@ testCases.forEach(function (filename) {
     var expected = JSON.parse(read(filename.replace(/\.input\.json$/, '.expected.json')));
     var actual;
     try {
-      handleFilters(JSON.parse(read(filename)));
+      handleFilters(JSON.parse(read(filename)), customFilters);
       throw new Error('Expected ' + filename + ' to throw an exception.');
     } catch (ex) {
       if (!ex || !ex.code || !ex.code.indexOf('PUG:') === 0) throw ex;
