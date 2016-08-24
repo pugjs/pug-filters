@@ -1,5 +1,9 @@
 # Change log
 
+## 1.2.4 / 2016-08-23
+
+- Update to `pug-walk@1.0.0`
+
 ## 1.2.3 / 2016-07-18
 
 - Fix includes using custom filters
